@@ -27,6 +27,6 @@ try:
 
 except:
     
-#Gives an error message if the code above fails to work due to the fil being missing, variable assignment not working, etc.
+#Gives an error message if the code above fails to work due to the file being missing, variable assignment not working, etc.
     print('There was an error in trying to open languages.txt or creating the bar graph.')
 
