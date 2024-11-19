@@ -9,11 +9,7 @@ try:
 
 #Opens USPopulation.txt and sets the table data with the data from the file.
     with open('USPopulation.txt', 'r') as file:
-        data = np.array(file.readlines())
-
-#Converts every vaue in the dat aarray into an integer.
-        for i in data:
-            i = int(i)
+        data = np.genfromtxt('USPopulation.txt', dtype=int)
 
 #Defines the minuend and the subtrahend, which is used to find the difference in the change of populations.
 #This data is stored in the difference array.
