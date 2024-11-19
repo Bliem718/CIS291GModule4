@@ -7,17 +7,17 @@ import numpy as np
 #Tries to run the code below and if fails, gives an error message.
 try:
     
-#Opens languages.txt and sets the table data with the data from the file.
-    with open('languages.txt', 'r') as file:
-        table = np.array(file.readlines())
+#Opens languages.txt and sets the table data with the data from the file as an array of strings.
+#Uses the "," as the delimiter.
+    table = np.genfromtxt('languages.txt', dtype=str, delimiter=',')
 
-#Sets the label and data lists with the labels and data from the table respectively.
-#It also uses commas as delimiters for the values and strips away the quotation marks, whitespace, and newline characters.
-    labels = np.array([i.strip(' ').strip('"').strip('"\n') for i in table[0].split(',')])
-    data = np.array([int(i.strip(' ').strip('"')) for i in table[1].split(',')])
-
+#Sets the label and data array with the labels and data from the table respectively.
+#The vaues of the data array are also converted to int.
+    label = np.array(table[0])
+    data = np.array(table[1], dtype=int)
+    
 #Creates the bar chart with the label and data lists, along with adjusting the bar graphs's labels, title, width, and color.
-    plt.bar(labels, data, width=0.5, color='maroon')
+    plt.bar(label, data, width=0.5, color='maroon')
     plt.xlabel('Languages')
     plt.ylabel('Popularity')
     plt.title('Computer Languages')
